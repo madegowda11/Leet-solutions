@@ -1,0 +1,49 @@
+package com.Array.Package;
+import java.util.*;
+public class SecondMaxNum {
+	public static int[] createIntArr() {
+		 int n,i;
+		 Scanner sc=new Scanner(System.in);
+			System.out.print("enter size:");
+			n=sc.nextInt();
+			int[] arr=new int[n];
+			for(i=0;i<arr.length;i++) {
+				System.out.print("enter val:");
+				arr[i]=sc.nextInt();
+			}
+			return arr;
+		}
+	public static List<Integer> findSecMaxElement(int[] arr) {
+		int i;
+		int maxEle=Integer.MIN_VALUE;
+		int maxInd=-1;
+		int secMax=Integer.MIN_VALUE;
+		int secMaxInd=-1;
+		List<Integer> al=new ArrayList<>();
+		 for(i=0;i<arr.length;i++) {
+			 if(arr[i]>maxEle) {
+				 secMax=maxEle;
+				 secMaxInd=maxInd;
+				 maxEle=arr[i];
+				 maxInd=i;
+				 }else  if(arr[i]!=maxEle && arr[i]>secMax) {
+					 secMax=arr[i];
+					 secMaxInd=i;
+				 }
+		 }
+					 al.add(maxEle);
+					 al.add(maxInd);
+					 al.add(secMax);
+					 al.add(secMaxInd);
+					 return al;
+					 
+				 
+	}
+	public static void main(String[]args) {
+		int[]arr=createIntArr();
+		System.out.println("original arrays:"+Arrays.toString(arr));
+		List<Integer> al= findSecMaxElement(arr);
+		System.out.println("the largest val is: " +al.get(0)+ " at index: "+al.get(1));
+		System.out.println("the  second largest val is: " +al.get(2)+ " at index: "+al.get(3));
+	}
+}
