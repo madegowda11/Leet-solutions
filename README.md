@@ -1,3 +1,3 @@
 # Leet-solutions
 
-Java Solutions
+Java Programming Solutions
