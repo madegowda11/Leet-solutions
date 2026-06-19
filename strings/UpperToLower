@@ -1,0 +1,56 @@
+package com.dcl.string;
+import java.util.*;
+public class UpperToLower {
+
+	public static String toLowerCase(String s) {
+		int i;
+		char[] arr=s.toCharArray();
+		for(i=0;i<arr.length;i++) {
+			if(arr[i] >= 'A' && arr[i]<='Z') {
+				arr[i]=(char)((int)arr[i]+32);
+			}
+		}
+		return new String(arr);
+	}
+	
+	public static String toUpperCase(String s) {
+		int i;
+		char[] arr=s.toCharArray();
+		for(i=0;i<arr.length;i++) {
+			if(arr[i] >= 'a' && arr[i]<='z') {
+				arr[i]=(char)((int)arr[i]-32);
+			}
+		}
+		return new String(arr);
+		
+	}
+	public static String toSwapCase(String s) {
+		int i;
+		char[] arr=s.toCharArray();
+		for(i=0;i<arr.length;i++) {
+			if(arr[i] >= 'A' && arr[i]<='Z') {
+				arr[i]=(char)((int)arr[i]+32);
+			}else if(arr[i] >= 'a' && arr[i]<='z') {
+				arr[i]=(char)((int)arr[i]-32);
+			}
+		}
+		return new String(arr);
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		String s,res,uc,scc;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a string: ");
+		s=sc.nextLine();
+		System.out.println("original string: "+s);
+		res=toLowerCase(s);
+		System.out.println("Upper to Lower String: "+res);
+		res=toUpperCase(s);
+		System.out.println("Lower to upper string: "+res);
+		res=toSwapCase(s);
+		System.out.println("Swap case: "+res);
+	}
+
+}
