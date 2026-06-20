@@ -1,0 +1,38 @@
+package com.dcl.string;
+
+import java.util.*;
+
+public class AddNumbers {
+
+	public static String sumNumbers(String s) {
+		String nstr = "";
+		int i, num = 0, sumNum = 0;
+		for (i = 0; i < s.length(); i++) {
+			if (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+				num = (num * 10) + ((int) (s.charAt(i)) - 48);
+			} else {
+				nstr = nstr + s.charAt(i);
+				if (num > 0) {
+					sumNum = sumNum + num;
+					num=0;
+				}
+			}
+		}
+		if (num > 0) {
+			sumNum = sumNum + num;
+			num = 0;
+		}
+		return (nstr + Integer.toString(sumNum));
+	}
+
+	public static void main(String[] args) {
+		String s, res;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the string: ");
+		s = sc.nextLine();
+		System.out.println("Original String: " + s);
+		res = sumNumbers(s);
+		System.out.println("Summed numbers: " + res);
+	}
+
+}
