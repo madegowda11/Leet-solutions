@@ -1,0 +1,36 @@
+package com.Array.Package;
+import java.util.*;
+public class ArraySearch {
+	static Scanner sc=new Scanner(System.in);
+	//int[] ==>Integer array address
+	public static int[] createIntArray() {		
+		int n,i;
+		System.out.println("Enter the size: ");
+		n=sc.nextInt();
+		int[] arr= new int[n];
+		for(i=0;i<arr.length;i++) {
+			System.out.print("Enter the value: ");
+			arr[i]=sc.nextInt();
+		}
+		return arr;
+	}
+	public static void main(String args[]) {
+		int arr[],target,index=-1,i;
+		boolean flag=false;
+		arr=createIntArray();
+		System.out.print("\nEnter the elements to be searched: ");
+		target=sc.nextInt();
+		for(i=0;i<arr.length;i++) {
+			if(target==arr[i]) {
+				flag=true;
+				index=i;
+				break;
+			}
+		}
+		if(flag) {
+			System.out.println("Element is founded at the index"+index);
+		}else {
+			System.out.println("Element not found");
+		}
+	}
+}
