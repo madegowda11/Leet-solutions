@@ -1,0 +1,47 @@
+package com.Array.Package;
+import java.util.*;
+public class FindMaxElement {
+	public static int[] createIntArray() {
+		int n,i;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the size: ");
+		n=sc.nextInt();
+		int[] arr=new int[n];
+		for(i=0;i<arr.length;i++) {
+			System.out.print("Enter the value: ");
+			arr[i]=sc.nextInt();
+		}
+		return arr;
+	}
+	//To find the largest Element
+	public static int findMaxEle(int[] arr) {
+		int i,maxEle=Integer.MIN_VALUE;
+		for(i=0;i<arr.length;i++) {
+			if(arr[i]>maxEle) {
+				maxEle=arr[i];
+			}
+		}
+		return maxEle;
+	}
+	
+	//to find maximum element's index 
+	public static int maxEleIndex(int [] arr) {
+		int i,maxEle=Integer.MIN_VALUE,maxEleInd=-1;
+		for(i=0;i<arr.length;i++) {
+			if(arr[i]>maxEle) {
+				maxEle=arr[i];
+				maxEleInd=i;
+			}
+		}
+		return maxEleInd;
+	}
+	public static void main(String args[]) {
+		
+		int[] arr=createIntArray();
+		System.out.println("original array"+Arrays.toString(arr));
+		int res=findMaxEle(arr);
+		System.out.println("the maximum element in the array is " +res);
+		int maxEleIndex=maxEleIndex(arr);
+		System.out.println("index of largest number is: "+maxEleIndex);
+	}
+}
